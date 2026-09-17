@@ -7,11 +7,15 @@ import pytest
 
 from cervical_biopsy_modeling.audit import LEAKAGE_COLUMNS
 from cervical_biopsy_modeling.data import DatasetValidationError
-from cervical_biopsy_modeling.modeling_data import build_modeling_dataset
+from cervical_biopsy_modeling.modeling_data import (
+    build_modeling_dataset,
+    retain_first_observation_per_group,
+)
 
 
 def make_modeling_dataframe() -> pd.DataFrame:
     """Create a small dataset with one duplicated predictor profile."""
+
     return pd.DataFrame(
         {
             "Age": [20, 20, 30],
@@ -66,3 +70,36 @@ def test_build_modeling_dataset_rejects_nonbinary_outcome() -> None:
 
     with pytest.raises(DatasetValidationError, match="exactly"):
         build_modeling_dataset(data)
+
+
+def test_retain_first_observation_per_group_removes_duplicates() -> None:
+    modeling_data = build_modeling_dataset(make_modeling_dataframe())
+
+    deduplicated = retain_first_observation_per_group(modeling_data)
+
+    assert len(deduplicated.predictors) == 2
+    assert len(deduplicated.outcome) == 2
+    assert len(deduplicated.groups) == 2
+    assert deduplicated.groups.is_unique
+
+
+def test_retain_first_observation_per_group_is_outcome_blind() -> None:
+    modeling_data = build_modeling_dataset(make_modeling_dataframe())
+
+    deduplicated = retain_first_observation_per_group(modeling_data)
+
+    assert deduplicated.predictors["Age"].tolist() == [20, 30]
+    assert deduplicated.outcome.tolist() == [0, 0]
+
+
+def test_retain_first_observation_per_group_resets_indices_without_mutation() -> None:
+    modeling_data = build_modeling_dataset(make_modeling_dataframe())
+
+    deduplicated = retain_first_observation_per_group(modeling_data)
+
+    assert deduplicated.predictors.index.tolist() == [0, 1]
+    assert deduplicated.outcome.index.tolist() == [0, 1]
+    assert deduplicated.groups.index.tolist() == [0, 1]
+
+    assert len(modeling_data.predictors) == 3
+    assert modeling_data.outcome.tolist() == [0, 1, 0]
