@@ -51,3 +51,13 @@ This repository must not contain:
 - direct or indirect personal identifiers.
 
 Only the publicly available UCI dataset is used.
+## Integrity reference
+
+The validated raw CSV has the following SHA-256 checksum:
+
+```text
+8df193ad5c9ff4288fb4c401eef70dcd2cbda404ce7f82ac74c68cfc960ab063
+
+```
+
+The download module rejects any local or remote CSV whose checksum differs from this pinned reference.
