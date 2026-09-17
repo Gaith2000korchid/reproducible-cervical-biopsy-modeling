@@ -154,6 +154,16 @@ The report will include:
 - uncertainty intervals when statistically appropriate;
 - the number of positive observations available in each evaluation set.
 
+### Uncertainty implementation note
+
+Added on 2026-09-17 after validating the evaluation pipeline and before inspecting aggregate performance results.
+
+Primary point estimates will be computed within each complete outer repetition by pooling the 858 out-of-fold predictions. The report will summarize the mean, standard deviation, and range across the five repetitions. Individual outer folds will not be treated as independent performance estimates.
+
+Conditional 95% uncertainty intervals will be estimated by resampling exact-predictor groups with replacement. The same bootstrap sample will be applied across models and repetitions to preserve pairing. Within each bootstrap sample, metrics will be computed separately for each repetition and then averaged across repetitions.
+
+These intervals quantify uncertainty conditional on the observed out-of-fold predictions. They do not account for every source of model-training uncertainty and must not be interpreted as external-validation confidence intervals.
+
 ## Planned sensitivity analyses
 
 The following analyses are planned:
