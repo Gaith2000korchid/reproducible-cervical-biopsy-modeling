@@ -1,0 +1,25 @@
+{
+  "columns": 36,
+  "constant_columns": [
+    "STDs:cervical condylomatosis",
+    "STDs:AIDS"
+  ],
+  "duplicate_predictor_groups": 22,
+  "duplicate_predictor_occurrences_beyond_first": 27,
+  "exact_duplicate_rows_beyond_first": 23,
+  "first_intercourse_after_current_age": 2,
+  "groups_with_conflicting_outcomes": 1,
+  "high_missingness_columns": {
+    "STDs: Time since first diagnosis": 0.9172494172494172,
+    "STDs: Time since last diagnosis": 0.9172494172494172
+  },
+  "largest_predictor_group": 4,
+  "missing_values": 3622,
+  "outcome_counts": {
+    "0": 803,
+    "1": 55
+  },
+  "outcome_prevalence": 0.0641025641025641,
+  "primary_predictor_count": 28,
+  "rows": 858
+}
