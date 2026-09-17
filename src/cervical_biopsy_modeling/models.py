@@ -13,9 +13,15 @@ from sklearn.pipeline import Pipeline
 from cervical_biopsy_modeling.preprocessing import (
     build_preprocessing_pipeline,
 )
+from cervical_biopsy_modeling.xgboost_model import (
+    BalancedXGBClassifier,
+)
 
 DEFAULT_RANDOM_STATE = 42
 LOGISTIC_C_VALUES = (0.01, 0.1, 1.0, 10.0, 100.0)
+XGBOOST_N_ESTIMATORS = (100, 300)
+XGBOOST_MAX_DEPTHS = (2, 3)
+XGBOOST_LEARNING_RATES = (0.03, 0.1)
 
 
 @dataclass(frozen=True)
@@ -86,6 +92,40 @@ def build_logistic_specification(
     )
 
 
+def build_xgboost_specification(
+    *,
+    random_state: int = DEFAULT_RANDOM_STATE,
+    n_jobs: int = 1,
+) -> ModelSpecification:
+    """Build the training-weighted XGBoost classifier."""
+    classifier = BalancedXGBClassifier(
+        n_estimators=100,
+        max_depth=3,
+        learning_rate=0.1,
+        subsample=0.8,
+        colsample_bytree=0.8,
+        min_child_weight=1.0,
+        reg_lambda=1.0,
+        random_state=random_state,
+        n_jobs=n_jobs,
+    )
+
+    estimator = build_classifier_pipeline(
+        classifier,
+        scale=False,
+    )
+
+    return ModelSpecification(
+        name="xgboost",
+        estimator=estimator,
+        parameter_grid={
+            "classifier__n_estimators": (XGBOOST_N_ESTIMATORS),
+            "classifier__max_depth": XGBOOST_MAX_DEPTHS,
+            "classifier__learning_rate": (XGBOOST_LEARNING_RATES),
+        },
+    )
+
+
 def build_model_specifications(
     *,
     random_state: int = DEFAULT_RANDOM_STATE,
@@ -95,6 +135,10 @@ def build_model_specifications(
         build_dummy_specification(),
         build_logistic_specification(
             random_state=random_state,
+        ),
+        build_xgboost_specification(
+            random_state=random_state,
+            n_jobs=1,
         ),
     )
 

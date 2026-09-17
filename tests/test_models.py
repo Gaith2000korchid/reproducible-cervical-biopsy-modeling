@@ -9,9 +9,16 @@ from sklearn.linear_model import LogisticRegression
 
 from cervical_biopsy_modeling.models import (
     LOGISTIC_C_VALUES,
+    XGBOOST_LEARNING_RATES,
+    XGBOOST_MAX_DEPTHS,
+    XGBOOST_N_ESTIMATORS,
     build_dummy_specification,
     build_logistic_specification,
     build_model_specifications,
+    build_xgboost_specification,
+)
+from cervical_biopsy_modeling.xgboost_model import (
+    BalancedXGBClassifier,
 )
 
 
@@ -73,15 +80,17 @@ def make_classification_data() -> tuple[pd.DataFrame, pd.Series]:
 
 
 def test_model_registry_contains_expected_models() -> None:
-    """The registry must expose both reference models."""
+    """The registry must expose every implemented model."""
     specifications = build_model_specifications()
 
     assert set(specifications) == {
         "dummy_prior",
         "logistic_regression",
+        "xgboost",
     }
     assert specifications["dummy_prior"].name == "dummy_prior"
     assert specifications["logistic_regression"].name == "logistic_regression"
+    assert specifications["xgboost"].name == "xgboost"
 
 
 def test_dummy_specification_uses_empirical_prior() -> None:
@@ -145,3 +154,44 @@ def test_logistic_pipeline_produces_valid_probabilities() -> None:
     assert np.all(probabilities >= 0.0)
     assert np.all(probabilities <= 1.0)
     assert np.allclose(probabilities.sum(axis=1), 1.0)
+
+
+def test_xgboost_specification_is_weighted_and_unscaled() -> None:
+    """XGBoost must use local weighting without scaling."""
+    specification = build_xgboost_specification(
+        random_state=127,
+        n_jobs=2,
+    )
+
+    preprocessing = specification.estimator.named_steps["preprocessing"]
+    classifier = specification.estimator.named_steps["classifier"]
+
+    assert "scaler" not in preprocessing.named_steps
+    assert isinstance(classifier, BalancedXGBClassifier)
+    assert classifier.subsample == 0.8
+    assert classifier.colsample_bytree == 0.8
+    assert classifier.min_child_weight == 1.0
+    assert classifier.reg_lambda == 1.0
+    assert classifier.random_state == 127
+    assert classifier.n_jobs == 2
+
+
+def test_xgboost_grid_contains_eight_candidates() -> None:
+    """The compact XGBoost grid must contain eight candidates."""
+    specification = build_xgboost_specification()
+
+    assert specification.parameter_grid == {
+        "classifier__n_estimators": (XGBOOST_N_ESTIMATORS),
+        "classifier__max_depth": XGBOOST_MAX_DEPTHS,
+        "classifier__learning_rate": (XGBOOST_LEARNING_RATES),
+    }
+    assert XGBOOST_N_ESTIMATORS == (100, 300)
+    assert XGBOOST_MAX_DEPTHS == (2, 3)
+    assert XGBOOST_LEARNING_RATES == (0.03, 0.1)
+
+    candidate_count = (
+        len(XGBOOST_N_ESTIMATORS)
+        * len(XGBOOST_MAX_DEPTHS)
+        * len(XGBOOST_LEARNING_RATES)
+    )
+    assert candidate_count == 8
