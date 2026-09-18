@@ -1,4 +1,4 @@
-"""XGBoost classifier with training-local class weighting."""
+"""XGBoost classifier with optional training-local class weighting."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ DEFAULT_RANDOM_STATE = 42
 
 
 class BalancedXGBClassifier(ClassifierMixin, BaseEstimator):
-    """XGBoost classifier computing class weight during each fit."""
+    """XGBoost classifier with configurable training-local weighting."""
 
     def __init__(
         self,
@@ -24,6 +24,7 @@ class BalancedXGBClassifier(ClassifierMixin, BaseEstimator):
         colsample_bytree: float = 0.8,
         min_child_weight: float = 1.0,
         reg_lambda: float = 1.0,
+        class_weighting: bool = True,
         random_state: int = DEFAULT_RANDOM_STATE,
         n_jobs: int = 1,
     ) -> None:
@@ -34,6 +35,7 @@ class BalancedXGBClassifier(ClassifierMixin, BaseEstimator):
         self.colsample_bytree = colsample_bytree
         self.min_child_weight = min_child_weight
         self.reg_lambda = reg_lambda
+        self.class_weighting = class_weighting
         self.random_state = random_state
         self.n_jobs = n_jobs
 
@@ -42,7 +44,8 @@ class BalancedXGBClassifier(ClassifierMixin, BaseEstimator):
         predictors: Any,
         outcome: Any,
     ) -> BalancedXGBClassifier:
-        """Fit XGBoost with a weight derived only from given outcomes."""
+        """Fit XGBoost using optional training-local class weighting."""
+
         from xgboost import XGBClassifier
 
         outcome_array = np.asarray(outcome)
@@ -58,7 +61,11 @@ class BalancedXGBClassifier(ClassifierMixin, BaseEstimator):
 
         negative_count = int(counts[0])
         positive_count = int(counts[1])
-        self.scale_pos_weight_ = negative_count / positive_count
+
+        if self.class_weighting:
+            self.scale_pos_weight_ = negative_count / positive_count
+        else:
+            self.scale_pos_weight_ = 1.0
 
         self.estimator_ = XGBClassifier(
             objective="binary:logistic",
@@ -75,7 +82,11 @@ class BalancedXGBClassifier(ClassifierMixin, BaseEstimator):
             random_state=self.random_state,
             n_jobs=self.n_jobs,
         )
-        self.estimator_.fit(predictors, outcome_array)
+
+        self.estimator_.fit(
+            predictors,
+            outcome_array,
+        )
 
         self.classes_ = self.estimator_.classes_
         self.n_features_in_ = self.estimator_.n_features_in_
@@ -87,10 +98,12 @@ class BalancedXGBClassifier(ClassifierMixin, BaseEstimator):
 
     def predict(self, predictors: Any) -> np.ndarray:
         """Predict binary class labels."""
+
         check_is_fitted(self, "estimator_")
         return self.estimator_.predict(predictors)
 
     def predict_proba(self, predictors: Any) -> np.ndarray:
         """Predict class probabilities."""
+
         check_is_fitted(self, "estimator_")
         return self.estimator_.predict_proba(predictors)

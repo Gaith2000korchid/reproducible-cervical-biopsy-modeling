@@ -24,6 +24,7 @@ from cervical_biopsy_modeling.xgboost_model import (
 
 def make_classification_data() -> tuple[pd.DataFrame, pd.Series]:
     """Create a small imbalanced dataset with missing values."""
+
     predictors = pd.DataFrame(
         {
             "age": [
@@ -71,16 +72,19 @@ def make_classification_data() -> tuple[pd.DataFrame, pd.Series]:
             "constant": [1] * 12,
         }
     )
+
     outcome = pd.Series(
         [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1],
         name="Biopsy",
         dtype=int,
     )
+
     return predictors, outcome
 
 
 def test_model_registry_contains_expected_models() -> None:
     """The registry must expose every implemented model."""
+
     specifications = build_model_specifications()
 
     assert set(specifications) == {
@@ -95,9 +99,9 @@ def test_model_registry_contains_expected_models() -> None:
 
 def test_dummy_specification_uses_empirical_prior() -> None:
     """The dummy model must return the training prevalence."""
+
     predictors, outcome = make_classification_data()
     specification = build_dummy_specification()
-
     classifier = specification.estimator.named_steps["classifier"]
 
     assert isinstance(classifier, DummyClassifier)
@@ -110,8 +114,9 @@ def test_dummy_specification_uses_empirical_prior() -> None:
     assert np.allclose(probabilities, outcome.mean())
 
 
-def test_logistic_specification_is_weighted_and_scaled() -> None:
-    """The logistic model must use weighting and scaling."""
+def test_logistic_specification_is_weighted_and_scaled_by_default() -> None:
+    """The primary logistic model must use weighting and scaling."""
+
     specification = build_logistic_specification(random_state=123)
 
     preprocessing = specification.estimator.named_steps["preprocessing"]
@@ -126,8 +131,22 @@ def test_logistic_specification_is_weighted_and_scaled() -> None:
     assert classifier.random_state == 123
 
 
+def test_logistic_specification_can_disable_class_weighting() -> None:
+    """The sensitivity model must permit unweighted fitting."""
+
+    specification = build_logistic_specification(
+        class_weighting=False,
+    )
+
+    classifier = specification.estimator.named_steps["classifier"]
+
+    assert isinstance(classifier, LogisticRegression)
+    assert classifier.class_weight is None
+
+
 def test_logistic_grid_contains_prespecified_c_values() -> None:
     """The inner-validation grid must target regularization."""
+
     specification = build_logistic_specification()
 
     assert specification.parameter_grid == {
@@ -144,6 +163,7 @@ def test_logistic_grid_contains_prespecified_c_values() -> None:
 
 def test_logistic_pipeline_produces_valid_probabilities() -> None:
     """The full logistic pipeline must fit with missing values."""
+
     predictors, outcome = make_classification_data()
     specification = build_logistic_specification()
 
@@ -156,8 +176,9 @@ def test_logistic_pipeline_produces_valid_probabilities() -> None:
     assert np.allclose(probabilities.sum(axis=1), 1.0)
 
 
-def test_xgboost_specification_is_weighted_and_unscaled() -> None:
-    """XGBoost must use local weighting without scaling."""
+def test_xgboost_specification_is_weighted_and_unscaled_by_default() -> None:
+    """The primary XGBoost model must use local weighting without scaling."""
+
     specification = build_xgboost_specification(
         random_state=127,
         n_jobs=2,
@@ -168,6 +189,7 @@ def test_xgboost_specification_is_weighted_and_unscaled() -> None:
 
     assert "scaler" not in preprocessing.named_steps
     assert isinstance(classifier, BalancedXGBClassifier)
+    assert classifier.class_weighting is True
     assert classifier.subsample == 0.8
     assert classifier.colsample_bytree == 0.8
     assert classifier.min_child_weight == 1.0
@@ -176,14 +198,28 @@ def test_xgboost_specification_is_weighted_and_unscaled() -> None:
     assert classifier.n_jobs == 2
 
 
+def test_xgboost_specification_can_disable_class_weighting() -> None:
+    """The sensitivity model must permit unweighted XGBoost fitting."""
+
+    specification = build_xgboost_specification(
+        class_weighting=False,
+    )
+
+    classifier = specification.estimator.named_steps["classifier"]
+
+    assert isinstance(classifier, BalancedXGBClassifier)
+    assert classifier.class_weighting is False
+
+
 def test_xgboost_grid_contains_eight_candidates() -> None:
     """The compact XGBoost grid must contain eight candidates."""
+
     specification = build_xgboost_specification()
 
     assert specification.parameter_grid == {
-        "classifier__n_estimators": (XGBOOST_N_ESTIMATORS),
+        "classifier__n_estimators": XGBOOST_N_ESTIMATORS,
         "classifier__max_depth": XGBOOST_MAX_DEPTHS,
-        "classifier__learning_rate": (XGBOOST_LEARNING_RATES),
+        "classifier__learning_rate": XGBOOST_LEARNING_RATES,
     }
     assert XGBOOST_N_ESTIMATORS == (100, 300)
     assert XGBOOST_MAX_DEPTHS == (2, 3)
@@ -194,4 +230,22 @@ def test_xgboost_grid_contains_eight_candidates() -> None:
         * len(XGBOOST_MAX_DEPTHS)
         * len(XGBOOST_LEARNING_RATES)
     )
+
     assert candidate_count == 8
+
+
+def test_model_registry_propagates_disabled_class_weighting() -> None:
+    """The registry must pass the sensitivity setting to both models."""
+
+    specifications = build_model_specifications(
+        class_weighting=False,
+    )
+
+    logistic_classifier = specifications["logistic_regression"].estimator.named_steps[
+        "classifier"
+    ]
+
+    xgboost_classifier = specifications["xgboost"].estimator.named_steps["classifier"]
+
+    assert logistic_classifier.class_weight is None
+    assert xgboost_classifier.class_weighting is False

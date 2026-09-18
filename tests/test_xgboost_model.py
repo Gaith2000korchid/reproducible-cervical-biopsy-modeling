@@ -1,4 +1,4 @@
-"""Tests for the training-weighted XGBoost wrapper."""
+"""Tests for the optionally weighted XGBoost wrapper."""
 
 from __future__ import annotations
 
@@ -15,6 +15,7 @@ from cervical_biopsy_modeling.xgboost_model import (
 
 def make_predictors() -> pd.DataFrame:
     """Create a small numeric classification dataset."""
+
     return pd.DataFrame(
         {
             "first": np.linspace(0.0, 1.0, 12),
@@ -36,12 +37,17 @@ def make_predictors() -> pd.DataFrame:
     )
 
 
-def build_small_classifier() -> BalancedXGBClassifier:
+def build_small_classifier(
+    *,
+    class_weighting: bool = True,
+) -> BalancedXGBClassifier:
     """Build a fast classifier for unit tests."""
+
     return BalancedXGBClassifier(
         n_estimators=5,
         max_depth=2,
         learning_rate=0.1,
+        class_weighting=class_weighting,
         random_state=17,
         n_jobs=1,
     )
@@ -49,6 +55,7 @@ def build_small_classifier() -> BalancedXGBClassifier:
 
 def test_xgboost_wrapper_is_cloneable() -> None:
     """The wrapper must satisfy scikit-learn cloning."""
+
     classifier = build_small_classifier()
     cloned = clone(classifier)
 
@@ -59,6 +66,7 @@ def test_xgboost_wrapper_is_cloneable() -> None:
 
 def test_xgboost_wrapper_requires_both_classes() -> None:
     """Training data must contain classes zero and one."""
+
     predictors = make_predictors()
     outcome = np.zeros(len(predictors), dtype=int)
     classifier = build_small_classifier()
@@ -68,7 +76,8 @@ def test_xgboost_wrapper_requires_both_classes() -> None:
 
 
 def test_xgboost_wrapper_computes_training_local_weight() -> None:
-    """The imbalance ratio must be derived during fit."""
+    """The imbalance ratio must be derived during weighted fitting."""
+
     predictors = make_predictors()
     outcome = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1])
     classifier = build_small_classifier()
@@ -79,8 +88,24 @@ def test_xgboost_wrapper_computes_training_local_weight() -> None:
     assert classifier.estimator_.get_params()["scale_pos_weight"] == pytest.approx(3.0)
 
 
+def test_xgboost_wrapper_can_disable_class_weighting() -> None:
+    """Unweighted fitting must use a unit positive-class weight."""
+
+    predictors = make_predictors()
+    outcome = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1])
+    classifier = build_small_classifier(
+        class_weighting=False,
+    )
+
+    classifier.fit(predictors, outcome)
+
+    assert classifier.scale_pos_weight_ == pytest.approx(1.0)
+    assert classifier.estimator_.get_params()["scale_pos_weight"] == pytest.approx(1.0)
+
+
 def test_xgboost_wrapper_updates_weight_on_refit() -> None:
     """A second fit must recompute rather than reuse the weight."""
+
     predictors = make_predictors()
     first_outcome = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1])
     second_outcome = np.array([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1])
@@ -95,6 +120,7 @@ def test_xgboost_wrapper_updates_weight_on_refit() -> None:
 
 def test_xgboost_wrapper_produces_valid_probabilities() -> None:
     """Fitted probabilities must have the binary shape."""
+
     predictors = make_predictors()
     outcome = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1])
     classifier = build_small_classifier()
@@ -110,6 +136,7 @@ def test_xgboost_wrapper_produces_valid_probabilities() -> None:
 
 def test_xgboost_wrapper_rejects_prediction_before_fit() -> None:
     """Prediction before fitting must raise a clear error."""
+
     predictors = make_predictors()
     classifier = build_small_classifier()
 
