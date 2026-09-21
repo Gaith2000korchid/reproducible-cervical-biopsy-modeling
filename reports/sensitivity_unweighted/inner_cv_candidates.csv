@@ -1,0 +1,351 @@
+repeat,fold,random_state,model,candidate,parameters,mean_inner_average_precision,std_inner_average_precision,rank_inner_average_precision
+1,1,42,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+1,1,42,logistic_regression,1,"{""classifier__C"": 0.01}",0.14087147165697061,0.018103867403209458,1
+1,1,42,logistic_regression,2,"{""classifier__C"": 0.1}",0.125442713997109,0.01609740095525022,2
+1,1,42,logistic_regression,3,"{""classifier__C"": 1.0}",0.1050891160796837,0.014594643143737927,3
+1,1,42,logistic_regression,4,"{""classifier__C"": 10.0}",0.09612218984380767,0.015182656121724609,4
+1,1,42,logistic_regression,5,"{""classifier__C"": 100.0}",0.0961135496279007,0.015312534541993984,5
+1,1,42,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14793296033655395,0.04641047020445507,2
+1,1,42,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.14178071451047353,0.04019877346101243,6
+1,1,42,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.1620536721925104,0.03458701106192055,1
+1,1,42,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.14494131541249974,0.03716831464785282,3
+1,1,42,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14250239475785995,0.03780627576498245,5
+1,1,42,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.12940354708114296,0.03730380825171025,7
+1,1,42,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.14347173678166356,0.03433249368906016,4
+1,1,42,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.1131443819009583,0.040358468060241896,8
+1,2,42,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+1,2,42,logistic_regression,1,"{""classifier__C"": 0.01}",0.11639018696667291,0.03014105600899616,1
+1,2,42,logistic_regression,2,"{""classifier__C"": 0.1}",0.11032962810703284,0.03173171213391427,2
+1,2,42,logistic_regression,3,"{""classifier__C"": 1.0}",0.09509311414452258,0.020643898340778285,3
+1,2,42,logistic_regression,4,"{""classifier__C"": 10.0}",0.09406108566916979,0.01908778670618973,4
+1,2,42,logistic_regression,5,"{""classifier__C"": 100.0}",0.09374141058665114,0.018655681369137436,5
+1,2,42,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.16644586458427243,0.059660732762054414,1
+1,2,42,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.14416428399874864,0.05078548247449083,4
+1,2,42,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.15296818004636492,0.05349294195292503,2
+1,2,42,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.12977628301360247,0.04279091597376175,7
+1,2,42,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14623129133153523,0.05808129770973423,3
+1,2,42,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.14172239101017298,0.07041326705133427,5
+1,2,42,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.1310219623294098,0.04787686818249512,6
+1,2,42,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.12093660344899085,0.05558315361396137,8
+1,3,42,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+1,3,42,logistic_regression,1,"{""classifier__C"": 0.01}",0.10362658866627539,0.020936424634224293,3
+1,3,42,logistic_regression,2,"{""classifier__C"": 0.1}",0.09202901256038046,0.016932684018372675,4
+1,3,42,logistic_regression,3,"{""classifier__C"": 1.0}",0.09078191741058544,0.013151570345522575,5
+1,3,42,logistic_regression,4,"{""classifier__C"": 10.0}",0.10649047940841871,0.03771349504312913,1
+1,3,42,logistic_regression,5,"{""classifier__C"": 100.0}",0.106432362344767,0.038021372164292445,2
+1,3,42,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14201076746903596,0.03893861866840682,4
+1,3,42,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.1420517397974897,0.05490340294673526,3
+1,3,42,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.14512598164229448,0.03981646356587213,1
+1,3,42,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.14275260686114666,0.05207709826144303,2
+1,3,42,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.13670493135004783,0.04896492495147356,6
+1,3,42,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.11687705269337278,0.03562128363556637,8
+1,3,42,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.14090056517612068,0.05323029215301223,5
+1,3,42,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.11796856969552308,0.04019386586591711,7
+1,4,42,dummy_prior,1,{},0.06404698762409901,0.0001619454549440478,1
+1,4,42,logistic_regression,1,"{""classifier__C"": 0.01}",0.17235336077149976,0.028404039303127997,1
+1,4,42,logistic_regression,2,"{""classifier__C"": 0.1}",0.15407824631444209,0.019942402046377705,3
+1,4,42,logistic_regression,3,"{""classifier__C"": 1.0}",0.1532266702390362,0.04893358487485817,4
+1,4,42,logistic_regression,4,"{""classifier__C"": 10.0}",0.15178969071823245,0.04824567762446138,5
+1,4,42,logistic_regression,5,"{""classifier__C"": 100.0}",0.1560581710259239,0.04451524959301289,2
+1,4,42,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.23151644815330397,0.07581797181485334,1
+1,4,42,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.20646774208884844,0.07798799971634539,2
+1,4,42,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.20310841843007438,0.06379527056020913,3
+1,4,42,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.18959684731331936,0.08057460805140053,5
+1,4,42,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.19050971299888642,0.054902478599733816,4
+1,4,42,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.16839322172723015,0.08206905114238383,7
+1,4,42,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.17452961700970498,0.07495526619652981,6
+1,4,42,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.14505292474520792,0.07456745086087145,8
+1,5,42,dummy_prior,1,{},0.06404698762409901,0.0001619454549440478,1
+1,5,42,logistic_regression,1,"{""classifier__C"": 0.01}",0.13559703425502168,0.037018853240236675,1
+1,5,42,logistic_regression,2,"{""classifier__C"": 0.1}",0.10478511625416582,0.021313380901057687,2
+1,5,42,logistic_regression,3,"{""classifier__C"": 1.0}",0.08829665872532465,0.022717468244765646,3
+1,5,42,logistic_regression,4,"{""classifier__C"": 10.0}",0.08235399015126296,0.019555608852285793,5
+1,5,42,logistic_regression,5,"{""classifier__C"": 100.0}",0.08295788678556906,0.02000308318637909,4
+1,5,42,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.1220303944084197,0.024922894584553053,2
+1,5,42,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.11545382353511449,0.018529286051993304,4
+1,5,42,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.137713952680357,0.04512217760264355,1
+1,5,42,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.11185132950199883,0.01190629789156391,5
+1,5,42,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.10480294505705752,0.0220281052730593,6
+1,5,42,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.10227093767613411,0.015573206834083383,8
+1,5,42,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.10257097434314155,0.010679004270140274,7
+1,5,42,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.11608146444263494,0.04225897368734008,3
+2,1,43,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+2,1,43,logistic_regression,1,"{""classifier__C"": 0.01}",0.13313157498582395,0.04907130396668237,2
+2,1,43,logistic_regression,2,"{""classifier__C"": 0.1}",0.13762177516802562,0.05083319182763726,1
+2,1,43,logistic_regression,3,"{""classifier__C"": 1.0}",0.11817370612094276,0.03385955320654313,3
+2,1,43,logistic_regression,4,"{""classifier__C"": 10.0}",0.1092341800537733,0.031043152690347162,4
+2,1,43,logistic_regression,5,"{""classifier__C"": 100.0}",0.10365052839757806,0.032567466842457,5
+2,1,43,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.15851672252812748,0.06221508018410724,4
+2,1,43,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.14795162482868982,0.04059010027516892,5
+2,1,43,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.19102443367119484,0.07935950782039955,1
+2,1,43,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.15965264757670428,0.040884932408742726,3
+2,1,43,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14525911550946802,0.04243798922767605,6
+2,1,43,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.13431374327648032,0.04097444939755013,8
+2,1,43,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.161169737178338,0.050430631525266084,2
+2,1,43,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.13628861653714536,0.03809201640843689,7
+2,2,43,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+2,2,43,logistic_regression,1,"{""classifier__C"": 0.01}",0.1425533484358228,0.02214270551697104,1
+2,2,43,logistic_regression,2,"{""classifier__C"": 0.1}",0.12535566545487845,0.023098417488737942,2
+2,2,43,logistic_regression,3,"{""classifier__C"": 1.0}",0.10240097042014243,0.02000691466845739,5
+2,2,43,logistic_regression,4,"{""classifier__C"": 10.0}",0.10276699213575659,0.02390486838634895,4
+2,2,43,logistic_regression,5,"{""classifier__C"": 100.0}",0.1033274066444,0.025659405985701114,3
+2,2,43,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.133987057731491,0.022478339689411493,1
+2,2,43,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.13339007110501871,0.022445973855061356,2
+2,2,43,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.12085335351253905,0.028508863191737552,4
+2,2,43,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.11822156979276757,0.021219921145335514,5
+2,2,43,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.1232862156750221,0.013278756626330964,3
+2,2,43,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.1132111846065833,0.013323755664848955,6
+2,2,43,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.11212827755817144,0.00767093438106123,7
+2,2,43,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.10586545544026163,0.02091338004205848,8
+2,3,43,dummy_prior,1,{},0.06404698762409901,0.0001619454549440478,1
+2,3,43,logistic_regression,1,"{""classifier__C"": 0.01}",0.16324872254315081,0.07840137386586656,1
+2,3,43,logistic_regression,2,"{""classifier__C"": 0.1}",0.14996361846004364,0.07288569684216663,2
+2,3,43,logistic_regression,3,"{""classifier__C"": 1.0}",0.11737297100442388,0.040221142788592325,3
+2,3,43,logistic_regression,4,"{""classifier__C"": 10.0}",0.10734773880958483,0.030854477422483303,5
+2,3,43,logistic_regression,5,"{""classifier__C"": 100.0}",0.10771756923841136,0.030939784341647965,4
+2,3,43,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.15002466442945073,0.03089169580840985,1
+2,3,43,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.13310604201848425,0.024217452384166182,2
+2,3,43,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.12336157058531946,0.014582394413506557,5
+2,3,43,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.1216483558052116,0.011738451295708113,6
+2,3,43,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.13266487738952,0.024868105814761465,3
+2,3,43,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.1212432695950989,0.016161242299098853,8
+2,3,43,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.12364157583863888,0.016570304445003136,4
+2,3,43,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.12130061000073633,0.021140777375958385,7
+2,4,43,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+2,4,43,logistic_regression,1,"{""classifier__C"": 0.01}",0.14283791915660163,0.028967296765107085,1
+2,4,43,logistic_regression,2,"{""classifier__C"": 0.1}",0.13125114877460287,0.04461907163700205,2
+2,4,43,logistic_regression,3,"{""classifier__C"": 1.0}",0.1286177311489013,0.038250669773649215,3
+2,4,43,logistic_regression,4,"{""classifier__C"": 10.0}",0.12321728991298479,0.04098680805671066,4
+2,4,43,logistic_regression,5,"{""classifier__C"": 100.0}",0.11989732875914773,0.0448590082542625,5
+2,4,43,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14177523972209327,0.04886329092040588,1
+2,4,43,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.12530269977322073,0.02570443667533094,5
+2,4,43,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.1380053152454805,0.03254253372528574,2
+2,4,43,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.12309385614693893,0.03533191448022676,7
+2,4,43,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.13044444940555225,0.039645807348745864,3
+2,4,43,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.12386284736066733,0.04802534833614679,6
+2,4,43,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.12752730121488048,0.04133585187665998,4
+2,4,43,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.12069341425167107,0.05070208606788343,8
+2,5,43,dummy_prior,1,{},0.06404698762409901,0.0001619454549440478,1
+2,5,43,logistic_regression,1,"{""classifier__C"": 0.01}",0.09412890933997782,0.026087933401402634,1
+2,5,43,logistic_regression,2,"{""classifier__C"": 0.1}",0.08818076524874688,0.024273099733500066,4
+2,5,43,logistic_regression,3,"{""classifier__C"": 1.0}",0.08795256377600572,0.031151847467210066,5
+2,5,43,logistic_regression,4,"{""classifier__C"": 10.0}",0.09265718379262103,0.03706455324745364,3
+2,5,43,logistic_regression,5,"{""classifier__C"": 100.0}",0.0936219813472643,0.03658626850640434,2
+2,5,43,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.16419397403385008,0.05989659584209555,4
+2,5,43,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.18118959680919855,0.08325632658213754,2
+2,5,43,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.1750182503816207,0.06412247095726727,3
+2,5,43,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.153753890644931,0.06847865209971993,5
+2,5,43,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.1866424628448174,0.06647096789767108,1
+2,5,43,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.15199093144269082,0.07386143798670575,6
+2,5,43,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.14208126713311056,0.057833453864843135,7
+2,5,43,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.11258566288270216,0.046224863956972874,8
+3,1,44,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+3,1,44,logistic_regression,1,"{""classifier__C"": 0.01}",0.11373357632278151,0.030564940705624086,1
+3,1,44,logistic_regression,2,"{""classifier__C"": 0.1}",0.09949493366838864,0.027538327069978184,2
+3,1,44,logistic_regression,3,"{""classifier__C"": 1.0}",0.08591445977140852,0.029460697374897787,3
+3,1,44,logistic_regression,4,"{""classifier__C"": 10.0}",0.07656694433667481,0.021984330404815542,4
+3,1,44,logistic_regression,5,"{""classifier__C"": 100.0}",0.0744509742585783,0.023594424250272653,5
+3,1,44,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14509885310537607,0.04262557065537268,1
+3,1,44,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.1166628658866473,0.029188341329301735,3
+3,1,44,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.12395104426810527,0.027155751000408894,2
+3,1,44,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.10419253095479997,0.016482525858225374,5
+3,1,44,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.11495063006256953,0.03471673371606297,4
+3,1,44,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.09496636248360238,0.004681064233008533,7
+3,1,44,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.10203177251563533,0.010227535966312113,6
+3,1,44,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.0899259287891448,0.00931863974529698,8
+3,2,44,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+3,2,44,logistic_regression,1,"{""classifier__C"": 0.01}",0.13300406253136088,0.027700241055931562,3
+3,2,44,logistic_regression,2,"{""classifier__C"": 0.1}",0.13912552171948367,0.032164288875401285,1
+3,2,44,logistic_regression,3,"{""classifier__C"": 1.0}",0.13875501285829797,0.04249558037069639,2
+3,2,44,logistic_regression,4,"{""classifier__C"": 10.0}",0.13229441377642892,0.03633644924263032,4
+3,2,44,logistic_regression,5,"{""classifier__C"": 100.0}",0.13152698299478865,0.03511165296987258,5
+3,2,44,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.1738937756941603,0.06814588352166086,1
+3,2,44,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.14226905463451,0.032969953857730244,6
+3,2,44,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.1606665790155553,0.05298993967253264,2
+3,2,44,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.1469624586922531,0.04062525484350074,5
+3,2,44,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14936779782424017,0.04735886486475243,4
+3,2,44,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.11863749463393111,0.026047630773247597,8
+3,2,44,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.14972187182969793,0.034906889304088584,3
+3,2,44,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.1343901930444561,0.03257501724148718,7
+3,3,44,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+3,3,44,logistic_regression,1,"{""classifier__C"": 0.01}",0.13415620586148308,0.03795190640036042,1
+3,3,44,logistic_regression,2,"{""classifier__C"": 0.1}",0.11664698133229752,0.02888831051382817,2
+3,3,44,logistic_regression,3,"{""classifier__C"": 1.0}",0.09606761435008512,0.011132530369700803,3
+3,3,44,logistic_regression,4,"{""classifier__C"": 10.0}",0.09410643811715577,0.011941938371632972,5
+3,3,44,logistic_regression,5,"{""classifier__C"": 100.0}",0.09445125702716031,0.012454772400097097,4
+3,3,44,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.16516858269628237,0.042487933042454754,7
+3,3,44,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.1620001560722469,0.033856774406606706,8
+3,3,44,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.1905871114883101,0.04578234943093489,2
+3,3,44,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.17497638607562943,0.016566376664265543,5
+3,3,44,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.17937343997410693,0.04040659088999115,4
+3,3,44,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.18846064737522827,0.02190482441432093,3
+3,3,44,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.19162305036073501,0.008798055369908714,1
+3,3,44,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.17329626193081601,0.03751599142698297,6
+3,4,44,dummy_prior,1,{},0.06404698762409901,0.0001619454549440478,1
+3,4,44,logistic_regression,1,"{""classifier__C"": 0.01}",0.1576022690672245,0.06677662754915371,1
+3,4,44,logistic_regression,2,"{""classifier__C"": 0.1}",0.14792380998510485,0.055565130485798205,2
+3,4,44,logistic_regression,3,"{""classifier__C"": 1.0}",0.14389145403157033,0.04301875285434504,3
+3,4,44,logistic_regression,4,"{""classifier__C"": 10.0}",0.12723651869888922,0.03161692054695679,4
+3,4,44,logistic_regression,5,"{""classifier__C"": 100.0}",0.12287000563650494,0.024741762179112815,5
+3,4,44,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14015491253147305,0.03668198916325174,5
+3,4,44,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.14643236719661068,0.038918584108768944,2
+3,4,44,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.1386141845974386,0.03818868869840329,6
+3,4,44,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.1403085433888952,0.032155945350907385,4
+3,4,44,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14468766360412896,0.04306236722017073,3
+3,4,44,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.12450446843975588,0.016602589505417504,7
+3,4,44,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.14852999066871198,0.030036355126411313,1
+3,4,44,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.11118599439767488,0.010916089851432272,8
+3,5,44,dummy_prior,1,{},0.06404698762409901,0.0001619454549440478,1
+3,5,44,logistic_regression,1,"{""classifier__C"": 0.01}",0.14608267754228207,0.02251303454316638,1
+3,5,44,logistic_regression,2,"{""classifier__C"": 0.1}",0.12783313660143622,0.020153007131574665,2
+3,5,44,logistic_regression,3,"{""classifier__C"": 1.0}",0.11764928019657356,0.021513591327536326,3
+3,5,44,logistic_regression,4,"{""classifier__C"": 10.0}",0.11624275730181736,0.02270677762254168,4
+3,5,44,logistic_regression,5,"{""classifier__C"": 100.0}",0.11588939661908589,0.022635338513257604,5
+3,5,44,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.15526061856889334,0.05638374263158729,5
+3,5,44,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.17111580186885594,0.04487385662994085,3
+3,5,44,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.15619985464041924,0.04825233373456195,4
+3,5,44,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.17808908301067075,0.04968505059320199,1
+3,5,44,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.17272105643988556,0.03900084039193157,2
+3,5,44,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.1341119432380069,0.03526082247557186,7
+3,5,44,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.13790903187622933,0.03176366788485048,6
+3,5,44,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.10193495514569437,0.018206115492570955,8
+4,1,45,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+4,1,45,logistic_regression,1,"{""classifier__C"": 0.01}",0.1751898177738293,0.08472338099950663,1
+4,1,45,logistic_regression,2,"{""classifier__C"": 0.1}",0.142007309533742,0.07328796170237671,2
+4,1,45,logistic_regression,3,"{""classifier__C"": 1.0}",0.11917884418518755,0.05424874848882672,3
+4,1,45,logistic_regression,4,"{""classifier__C"": 10.0}",0.11376943927943364,0.05862005578135772,4
+4,1,45,logistic_regression,5,"{""classifier__C"": 100.0}",0.11188047856290192,0.05723962963184112,5
+4,1,45,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14662200408342077,0.07616638592644509,3
+4,1,45,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.15371441142814526,0.08173281038744117,1
+4,1,45,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.1522434468747201,0.06700828822753514,2
+4,1,45,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.12926492536664747,0.04483187298544594,5
+4,1,45,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14384576792181272,0.0739608073227036,4
+4,1,45,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.11974970563743119,0.04184350898136961,8
+4,1,45,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.1280916970501079,0.03942850413188119,6
+4,1,45,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.11975357382290058,0.029666952919198488,7
+4,2,45,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+4,2,45,logistic_regression,1,"{""classifier__C"": 0.01}",0.12980228853471434,0.04479608266338308,1
+4,2,45,logistic_regression,2,"{""classifier__C"": 0.1}",0.11631450218787795,0.027313665003504992,2
+4,2,45,logistic_regression,3,"{""classifier__C"": 1.0}",0.0965484657453426,0.02073204620460429,3
+4,2,45,logistic_regression,4,"{""classifier__C"": 10.0}",0.09529990072334651,0.020779818198055473,5
+4,2,45,logistic_regression,5,"{""classifier__C"": 100.0}",0.09602158098546687,0.021214025337574025,4
+4,2,45,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.18635020516534678,0.09503895060945107,7
+4,2,45,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.22154728908696364,0.09771437915684426,5
+4,2,45,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.18550165235171948,0.0864040813738002,8
+4,2,45,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.24403648034392486,0.11848409050804876,2
+4,2,45,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.24405399021229024,0.1160443799518794,1
+4,2,45,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.23979089817682722,0.11195291091502325,3
+4,2,45,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.23956662570648213,0.10556927729769423,4
+4,2,45,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.21581164944094666,0.08975422183215045,6
+4,3,45,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+4,3,45,logistic_regression,1,"{""classifier__C"": 0.01}",0.16396930284027644,0.05368196417683513,1
+4,3,45,logistic_regression,2,"{""classifier__C"": 0.1}",0.1491703331635191,0.03946071868193091,2
+4,3,45,logistic_regression,3,"{""classifier__C"": 1.0}",0.1287571625053775,0.037097800230995084,3
+4,3,45,logistic_regression,4,"{""classifier__C"": 10.0}",0.11397743566223824,0.02626065426128805,4
+4,3,45,logistic_regression,5,"{""classifier__C"": 100.0}",0.11339267940816672,0.026193412309442842,5
+4,3,45,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.1659387172864737,0.01189759675052315,1
+4,3,45,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.12626809340223552,0.019565697899410577,6
+4,3,45,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.15165107231940403,0.016088464133343874,3
+4,3,45,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.11496137008315549,0.020794308261537563,7
+4,3,45,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.13399969095005798,0.02661797763848667,4
+4,3,45,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.1327785146210121,0.0574553416396017,5
+4,3,45,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.15279398785390355,0.08932889431638506,2
+4,3,45,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.11376024111031185,0.04084497847461141,8
+4,4,45,dummy_prior,1,{},0.06404698762409901,0.0001619454549440478,1
+4,4,45,logistic_regression,1,"{""classifier__C"": 0.01}",0.12237255195737089,0.02707684651718578,1
+4,4,45,logistic_regression,2,"{""classifier__C"": 0.1}",0.11867811285237673,0.022553032763899552,2
+4,4,45,logistic_regression,3,"{""classifier__C"": 1.0}",0.11597393371516648,0.03225850149815039,3
+4,4,45,logistic_regression,4,"{""classifier__C"": 10.0}",0.10522096767546751,0.023158357734823887,4
+4,4,45,logistic_regression,5,"{""classifier__C"": 100.0}",0.095256079123455,0.007380701491122581,5
+4,4,45,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.15094453933111127,0.05183906502606788,4
+4,4,45,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.14382343197513217,0.024377448097482025,5
+4,4,45,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.13243062330629038,0.025899934205265776,8
+4,4,45,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.15671945290667944,0.01712212805136974,2
+4,4,45,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.13763285203279882,0.034359185516701335,6
+4,4,45,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.1614826048603933,0.021468088759482862,1
+4,4,45,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.13556848640917138,0.004586877591189544,7
+4,4,45,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.15333015673047748,0.013046761234107522,3
+4,5,45,dummy_prior,1,{},0.06404698762409901,0.0001619454549440478,1
+4,5,45,logistic_regression,1,"{""classifier__C"": 0.01}",0.1466938281411537,0.029368883598509518,1
+4,5,45,logistic_regression,2,"{""classifier__C"": 0.1}",0.11402386795603905,0.009257759161295252,2
+4,5,45,logistic_regression,3,"{""classifier__C"": 1.0}",0.09571736825793586,0.013929231695661265,3
+4,5,45,logistic_regression,4,"{""classifier__C"": 10.0}",0.08842500431492012,0.013448542599171175,5
+4,5,45,logistic_regression,5,"{""classifier__C"": 100.0}",0.09049184544724209,0.015749357108006155,4
+4,5,45,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.16149848008645912,0.04636414776728656,6
+4,5,45,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.17182067100203988,0.04810724640686616,4
+4,5,45,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.20224642293630232,0.04784984973790132,1
+4,5,45,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.1723680947633994,0.05370850833672845,3
+4,5,45,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.1705570915080215,0.050849265756396256,5
+4,5,45,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.16100979313261463,0.06474993684565993,7
+4,5,45,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.18526290035029375,0.0599910316054421,2
+4,5,45,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.1411715533134097,0.06015326106746988,8
+5,1,46,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+5,1,46,logistic_regression,1,"{""classifier__C"": 0.01}",0.1048348323186671,0.03256428238673488,1
+5,1,46,logistic_regression,2,"{""classifier__C"": 0.1}",0.09651095013572396,0.029754609541526287,4
+5,1,46,logistic_regression,3,"{""classifier__C"": 1.0}",0.08089751327905446,0.015801727696625426,5
+5,1,46,logistic_regression,4,"{""classifier__C"": 10.0}",0.09950125760156156,0.029736207385740135,2
+5,1,46,logistic_regression,5,"{""classifier__C"": 100.0}",0.09938621917639548,0.02982250248484062,3
+5,1,46,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.12693105397604298,0.03235142976745772,8
+5,1,46,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.14079898334561375,0.05252282828776236,6
+5,1,46,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.1458152652372975,0.04105944983490522,5
+5,1,46,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.156632696607107,0.07228865117250956,3
+5,1,46,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14028752173717746,0.04710058081905624,7
+5,1,46,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.14704446625995415,0.04898475645529177,4
+5,1,46,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.15988536505344686,0.06930396495189428,2
+5,1,46,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.1626330175013788,0.0807143734252362,1
+5,2,46,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+5,2,46,logistic_regression,1,"{""classifier__C"": 0.01}",0.15074888159784142,0.021628142596917397,1
+5,2,46,logistic_regression,2,"{""classifier__C"": 0.1}",0.14043976324796198,0.030605642868458297,2
+5,2,46,logistic_regression,3,"{""classifier__C"": 1.0}",0.12150593062010462,0.040880322953481596,3
+5,2,46,logistic_regression,4,"{""classifier__C"": 10.0}",0.10665623286551854,0.03843015017713586,4
+5,2,46,logistic_regression,5,"{""classifier__C"": 100.0}",0.10536327570133404,0.039795166232975576,5
+5,2,46,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.1922056925313484,0.0431156478177566,3
+5,2,46,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.1561408744853299,0.041740388779695506,6
+5,2,46,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.19347490571833328,0.04733041798343098,1
+5,2,46,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.1928594379931816,0.05796964134141515,2
+5,2,46,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.17274046457769626,0.0701870370725884,5
+5,2,46,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.14799543593554243,0.05905769286448038,8
+5,2,46,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.19042227870920492,0.06153427793597871,4
+5,2,46,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.15268050973383898,0.04423887728406516,7
+5,3,46,dummy_prior,1,{},0.06414048687610499,0.00018699850401196483,1
+5,3,46,logistic_regression,1,"{""classifier__C"": 0.01}",0.14816696447573305,0.09209629516513729,1
+5,3,46,logistic_regression,2,"{""classifier__C"": 0.1}",0.1377996505780684,0.08092409111583189,2
+5,3,46,logistic_regression,3,"{""classifier__C"": 1.0}",0.11939572023017712,0.054707407132739506,3
+5,3,46,logistic_regression,4,"{""classifier__C"": 10.0}",0.09291984130955804,0.019705242807573204,5
+5,3,46,logistic_regression,5,"{""classifier__C"": 100.0}",0.09327998916387423,0.019832980690917608,4
+5,3,46,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.13080447476754437,0.055131934044712845,6
+5,3,46,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.13264058154314573,0.04620774602830717,3
+5,3,46,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.13897482242819026,0.052418161782740245,2
+5,3,46,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.12931330581043315,0.044902720195103246,7
+5,3,46,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.1323494995032074,0.03513051294938708,4
+5,3,46,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.14120093807247888,0.0427156992014883,1
+5,3,46,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.13174017737518562,0.038773512801665015,5
+5,3,46,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.11510650971565914,0.04047003433578394,8
+5,4,46,dummy_prior,1,{},0.06404698762409901,0.0001619454549440478,1
+5,4,46,logistic_regression,1,"{""classifier__C"": 0.01}",0.14081996171765365,0.006460801157163403,1
+5,4,46,logistic_regression,2,"{""classifier__C"": 0.1}",0.12494906048870875,0.005310630821474015,2
+5,4,46,logistic_regression,3,"{""classifier__C"": 1.0}",0.11451377457593892,0.011030673793563327,3
+5,4,46,logistic_regression,4,"{""classifier__C"": 10.0}",0.11277218842395109,0.013787070924981472,5
+5,4,46,logistic_regression,5,"{""classifier__C"": 100.0}",0.11343554212413068,0.014749068910888658,4
+5,4,46,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.1523097662629006,0.021198822661230833,8
+5,4,46,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.16947845851487348,0.03730424331408448,5
+5,4,46,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.15387463632350162,0.025690720548464777,7
+5,4,46,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.1886144394271184,0.06521763183463275,3
+5,4,46,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.1671026939270287,0.055923023993366405,6
+5,4,46,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.18307616194418858,0.0725146284967106,4
+5,4,46,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.18874282277458176,0.0685912242029549,2
+5,4,46,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.19249877757394954,0.0898652612707302,1
+5,5,46,dummy_prior,1,{},0.06404698762409901,0.0001619454549440478,1
+5,5,46,logistic_regression,1,"{""classifier__C"": 0.01}",0.1448591017040307,0.024735084541012115,2
+5,5,46,logistic_regression,2,"{""classifier__C"": 0.1}",0.15256347712782514,0.034252417139418206,1
+5,5,46,logistic_regression,3,"{""classifier__C"": 1.0}",0.1254773650592948,0.015209199817197776,3
+5,5,46,logistic_regression,4,"{""classifier__C"": 10.0}",0.1101807135857819,0.013509249815657555,4
+5,5,46,logistic_regression,5,"{""classifier__C"": 100.0}",0.10445133041226412,0.01748244880586163,5
+5,5,46,xgboost,1,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.14632474821859,0.028022553856564995,6
+5,5,46,xgboost,2,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.15718125420789686,0.043771737103928,2
+5,5,46,xgboost,3,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.1514875607259797,0.024378819917529854,4
+5,5,46,xgboost,4,"{""classifier__learning_rate"": 0.03, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.16339954158418113,0.06110992564994283,1
+5,5,46,xgboost,5,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 100}",0.1473494158915989,0.028326515105655023,5
+5,5,46,xgboost,6,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 2, ""classifier__n_estimators"": 300}",0.13815135310963264,0.03805953316852265,8
+5,5,46,xgboost,7,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 100}",0.15212188589770465,0.03380948641258447,3
+5,5,46,xgboost,8,"{""classifier__learning_rate"": 0.1, ""classifier__max_depth"": 3, ""classifier__n_estimators"": 300}",0.14207640579489061,0.046188819228302154,7
