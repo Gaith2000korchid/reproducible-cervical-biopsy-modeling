@@ -25,11 +25,12 @@ class ModelingDataset:
     groups: pd.Series
 
 
-def build_modeling_dataset(
+def _build_modeling_dataset(
     data: pd.DataFrame,
+    predictor_names: list[str],
 ) -> ModelingDataset:
-    """Build inputs without fitting preprocessing operations."""
-    predictor_names = primary_predictor_columns(data)
+    """Build modeling inputs from an explicitly selected predictor set."""
+
     predictors = data.loc[:, predictor_names].copy()
     outcome = data.loc[:, OUTCOME_COLUMN].copy()
 
@@ -44,6 +45,10 @@ def build_modeling_dataset(
         )
 
     outcome = outcome.astype("int8").rename(OUTCOME_COLUMN)
+
+    # Groups deliberately remain based on the primary pre-examination
+    # predictors. This preserves duplicate handling and permits paired
+    # comparisons between the primary and diagnostic-inclusive analyses.
     groups = make_predictor_groups(data)
 
     if not predictors.index.equals(outcome.index):
@@ -59,6 +64,40 @@ def build_modeling_dataset(
     )
 
 
+def build_modeling_dataset(
+    data: pd.DataFrame,
+) -> ModelingDataset:
+    """Build the prespecified leakage-aware modeling inputs."""
+
+    predictor_names = primary_predictor_columns(data)
+
+    return _build_modeling_dataset(
+        data,
+        predictor_names,
+    )
+
+
+def build_diagnostic_inclusive_modeling_dataset(
+    data: pd.DataFrame,
+) -> ModelingDataset:
+    """Build inputs for the explicitly labelled leakage audit.
+
+    All seven current-examination or existing-diagnosis variables are
+    intentionally retained. These inputs must not be interpreted as
+    valid pre-screening predictors.
+    """
+
+    # Validate that the outcome and all prespecified leakage columns exist.
+    primary_predictor_columns(data)
+
+    predictor_names = [column for column in data.columns if column != OUTCOME_COLUMN]
+
+    return _build_modeling_dataset(
+        data,
+        predictor_names,
+    )
+
+
 def retain_first_observation_per_group(
     modeling: ModelingDataset,
 ) -> ModelingDataset:
@@ -67,7 +106,9 @@ def retain_first_observation_per_group(
     Selection follows the existing row order and does not inspect
     the outcome. Indices are reset for subsequent positional
     cross-validation.
+
     """
+
     retained = ~modeling.groups.duplicated(keep="first")
 
     predictors = modeling.predictors.loc[retained].reset_index(drop=True)

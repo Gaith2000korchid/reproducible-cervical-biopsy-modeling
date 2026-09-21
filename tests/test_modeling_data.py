@@ -8,6 +8,7 @@ import pytest
 from cervical_biopsy_modeling.audit import LEAKAGE_COLUMNS
 from cervical_biopsy_modeling.data import DatasetValidationError
 from cervical_biopsy_modeling.modeling_data import (
+    build_diagnostic_inclusive_modeling_dataset,
     build_modeling_dataset,
     retain_first_observation_per_group,
 )
@@ -72,6 +73,42 @@ def test_build_modeling_dataset_rejects_nonbinary_outcome() -> None:
         build_modeling_dataset(data)
 
 
+def test_diagnostic_inclusive_dataset_retains_leakage_columns() -> None:
+    data = make_modeling_dataframe()
+
+    primary = build_modeling_dataset(data)
+    diagnostic = build_diagnostic_inclusive_modeling_dataset(data)
+
+    expected_columns = [column for column in data.columns if column != "Biopsy"]
+
+    assert diagnostic.predictors.columns.tolist() == expected_columns
+    assert set(LEAKAGE_COLUMNS).issubset(diagnostic.predictors.columns)
+    assert len(diagnostic.predictors.columns) == (
+        len(primary.predictors.columns) + len(LEAKAGE_COLUMNS)
+    )
+
+
+def test_diagnostic_inclusive_dataset_preserves_outcome_and_groups() -> None:
+    data = make_modeling_dataframe()
+
+    primary = build_modeling_dataset(data)
+    diagnostic = build_diagnostic_inclusive_modeling_dataset(data)
+
+    pd.testing.assert_series_equal(diagnostic.outcome, primary.outcome)
+    pd.testing.assert_series_equal(diagnostic.groups, primary.groups)
+
+    assert diagnostic.groups.iloc[0] == diagnostic.groups.iloc[1]
+    assert diagnostic.predictors.loc[0, "Hinselmann"] == 0
+    assert diagnostic.predictors.loc[1, "Hinselmann"] == 1
+
+
+def test_diagnostic_inclusive_dataset_requires_leakage_columns() -> None:
+    data = make_modeling_dataframe().drop(columns="Schiller")
+
+    with pytest.raises(DatasetValidationError, match="Schiller"):
+        build_diagnostic_inclusive_modeling_dataset(data)
+
+
 def test_retain_first_observation_per_group_removes_duplicates() -> None:
     modeling_data = build_modeling_dataset(make_modeling_dataframe())
 
@@ -100,6 +137,5 @@ def test_retain_first_observation_per_group_resets_indices_without_mutation() ->
     assert deduplicated.predictors.index.tolist() == [0, 1]
     assert deduplicated.outcome.index.tolist() == [0, 1]
     assert deduplicated.groups.index.tolist() == [0, 1]
-
     assert len(modeling_data.predictors) == 3
     assert modeling_data.outcome.tolist() == [0, 1, 0]
