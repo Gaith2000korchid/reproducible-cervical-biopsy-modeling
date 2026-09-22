@@ -175,6 +175,13 @@ The following analyses are planned:
 
 These analyses will be labelled exploratory and kept separate from the primary result.
 
+### Missingness sensitivity implementation note
+
+Added on 2026-09-22 before running the alternative missingness sensitivity analysis.
+
+This analysis will retain the primary training-fold missingness filter and median imputation, but will disable the addition of missingness-indicator features. All other predictors, grouping rules, validation splits, model specifications, class-weighting settings, thresholds, metrics, and uncertainty calculations will remain identical to the primary analysis.
+
+This comparison isolates the contribution of missingness indicators without introducing a more complex imputation method that may be unstable given the small number of biopsy-positive observations.
 ## Reproducibility requirements
 
 The project will include:
