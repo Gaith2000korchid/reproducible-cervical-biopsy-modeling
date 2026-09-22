@@ -127,3 +127,27 @@ def test_scaled_pipeline_centers_retained_features() -> None:
 
     assert isinstance(transformed, pd.DataFrame)
     assert np.allclose(transformed.mean().to_numpy(), 0.0)
+
+
+def test_preprocessing_pipeline_can_disable_missing_indicators() -> None:
+    """The sensitivity pipeline must permit indicator-free imputation."""
+
+    data = pd.DataFrame(
+        {
+            "complete": [1.0, 2.0, 3.0, 4.0],
+            "partly_missing": [1.0, np.nan, 3.0, 4.0],
+        }
+    )
+
+    pipeline = build_preprocessing_pipeline(
+        scale=False,
+        add_missing_indicators=False,
+    )
+    transformed = pipeline.fit_transform(data)
+
+    assert isinstance(transformed, pd.DataFrame)
+    assert not transformed.isna().any().any()
+    assert not any(
+        column.startswith("missingindicator_") for column in transformed.columns
+    )
+    assert transformed.shape[1] == 2

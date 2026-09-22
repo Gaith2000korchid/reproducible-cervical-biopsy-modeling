@@ -99,6 +99,7 @@ def build_preprocessing_pipeline(
     *,
     scale: bool,
     max_missing_fraction: float = DEFAULT_MAX_MISSING_FRACTION,
+    add_missing_indicators: bool = True,
 ) -> Pipeline:
     """Build median imputation, indicators, filtering, and optional scaling."""
     steps: list[tuple[str, Any]] = [
@@ -112,7 +113,7 @@ def build_preprocessing_pipeline(
             "imputer",
             SimpleImputer(
                 strategy="median",
-                add_indicator=True,
+                add_indicator=add_missing_indicators,
                 keep_empty_features=False,
             ),
         ),

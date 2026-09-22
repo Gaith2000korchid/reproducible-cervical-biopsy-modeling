@@ -249,3 +249,17 @@ def test_model_registry_propagates_disabled_class_weighting() -> None:
 
     assert logistic_classifier.class_weight is None
     assert xgboost_classifier.class_weighting is False
+
+
+def test_model_registry_propagates_disabled_missing_indicators() -> None:
+    """Every model must receive the missing-indicator setting."""
+
+    specifications = build_model_specifications(
+        add_missing_indicators=False,
+    )
+
+    for specification in specifications.values():
+        preprocessing = specification.estimator.named_steps["preprocessing"]
+        imputer = preprocessing.named_steps["imputer"]
+
+        assert imputer.add_indicator is False

@@ -38,6 +38,7 @@ def build_classifier_pipeline(
     classifier: BaseEstimator,
     *,
     scale: bool,
+    add_missing_indicators: bool = True,
 ) -> Pipeline:
     """Combine leakage-safe preprocessing with a classifier."""
 
@@ -45,19 +46,26 @@ def build_classifier_pipeline(
         steps=[
             (
                 "preprocessing",
-                build_preprocessing_pipeline(scale=scale),
+                build_preprocessing_pipeline(
+                    scale=scale,
+                    add_missing_indicators=add_missing_indicators,
+                ),
             ),
             ("classifier", classifier),
         ]
     )
 
 
-def build_dummy_specification() -> ModelSpecification:
+def build_dummy_specification(
+    *,
+    add_missing_indicators: bool = True,
+) -> ModelSpecification:
     """Build the empirical-prevalence reference classifier."""
 
     estimator = build_classifier_pipeline(
         DummyClassifier(strategy="prior"),
         scale=False,
+        add_missing_indicators=add_missing_indicators,
     )
 
     return ModelSpecification(
@@ -71,6 +79,7 @@ def build_logistic_specification(
     *,
     random_state: int = DEFAULT_RANDOM_STATE,
     class_weighting: bool = True,
+    add_missing_indicators: bool = True,
 ) -> ModelSpecification:
     """Build the optionally weighted L2 logistic classifier."""
 
@@ -88,6 +97,7 @@ def build_logistic_specification(
     estimator = build_classifier_pipeline(
         classifier,
         scale=True,
+        add_missing_indicators=add_missing_indicators,
     )
 
     return ModelSpecification(
@@ -104,6 +114,7 @@ def build_xgboost_specification(
     random_state: int = DEFAULT_RANDOM_STATE,
     n_jobs: int = 1,
     class_weighting: bool = True,
+    add_missing_indicators: bool = True,
 ) -> ModelSpecification:
     """Build the optionally training-weighted XGBoost classifier."""
 
@@ -123,6 +134,7 @@ def build_xgboost_specification(
     estimator = build_classifier_pipeline(
         classifier,
         scale=False,
+        add_missing_indicators=add_missing_indicators,
     )
 
     return ModelSpecification(
@@ -140,19 +152,24 @@ def build_model_specifications(
     *,
     random_state: int = DEFAULT_RANDOM_STATE,
     class_weighting: bool = True,
+    add_missing_indicators: bool = True,
 ) -> dict[str, ModelSpecification]:
     """Build all currently implemented model specifications."""
 
     specifications = (
-        build_dummy_specification(),
+        build_dummy_specification(
+            add_missing_indicators=add_missing_indicators,
+        ),
         build_logistic_specification(
             random_state=random_state,
             class_weighting=class_weighting,
+            add_missing_indicators=add_missing_indicators,
         ),
         build_xgboost_specification(
             random_state=random_state,
             n_jobs=1,
             class_weighting=class_weighting,
+            add_missing_indicators=add_missing_indicators,
         ),
     )
 
