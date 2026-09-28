@@ -1,97 +1,188 @@
 # Reproducible Cervical Biopsy Modeling
 
-Leakage-aware prediction of concurrent cervical biopsy positivity using reproducible preprocessing and nested cross-validation.
+Leakage-aware prediction of concurrent cervical biopsy positivity using
+reproducible preprocessing and nested, group-aware cross-validation.
 
-## Project status
+> This repository is an educational and methodological portfolio project.
+> The models are not intended for diagnosis, clinical decision-making, or
+> patient care.
 
-This project is under active development.
+## Overview
 
-The modeling protocol has been specified before implementation. No performance result will be reported until the complete validation workflow has been implemented and tested.
+This project evaluates whether demographic, behavioral, reproductive, and
+medical-history variables available before the current cervical examination
+can discriminate between positive and negative biopsy outcomes.
 
-## Research question
+The analysis deliberately excludes current diagnostic examination results from
+the primary predictor set. It also evaluates how duplicate observations, class
+weighting, missingness indicators, and diagnostic-variable leakage affect the
+results.
 
-How well can demographic, behavioral, reproductive, and medical-history variables available before the current cervical examination discriminate between positive and negative biopsy outcomes?
+## Main findings
 
-The project predicts concurrent biopsy positivity. It does not predict future cervical cancer incidence.
+The dataset contained 858 observations, including 55 biopsy-positive outcomes
+(6.4%) and 831 exact-predictor groups.
+
+| Model | Average precision | ROC AUC | Sensitivity | Specificity | Balanced accuracy |
+|---|---:|---:|---:|---:|---:|
+| Dummy prior | 0.0640 | 0.4993 | 0.0000 | 1.0000 | 0.5000 |
+| Logistic regression | 0.1101 | 0.6133 | 0.5127 | 0.6740 | 0.5933 |
+| XGBoost | 0.0993 | 0.5932 | 0.2800 | 0.8299 | 0.5549 |
+
+Both fitted models improved average precision and ROC AUC relative to the dummy
+classifier. Paired intervals did not identify a clear overall winner between
+logistic regression and XGBoost.
+
+At the fixed threshold of 0.5, logistic regression was more sensitive, whereas
+XGBoost was more specific. Performance remained modest, and the weighted-model
+probabilities should not be interpreted as calibrated clinical risks.
+
+![Primary model performance](reports/figures/primary_performance.png)
+
+Detailed numerical results, conditional uncertainty intervals, sensitivity
+analyses, and limitations are reported in
+[`docs/results.md`](docs/results.md).
+
+## Validation design
+
+The primary workflow uses:
+
+- five outer folds repeated five times;
+- stratified, group-aware splitting;
+- four-fold inner validation for hyperparameter selection;
+- preprocessing fitted exclusively on training data;
+- exact-predictor grouping to prevent identical profiles from crossing folds;
+- an empirical-prevalence dummy classifier;
+- class-weighted logistic regression;
+- class-weighted XGBoost;
+- average precision as the primary metric;
+- grouped bootstrap intervals based on 2,000 resamples.
+
+The full prespecified design is documented in
+[`docs/modeling_protocol.md`](docs/modeling_protocol.md).
+
+## Sensitivity analyses
+
+Four separate analyses assess the robustness of the primary conclusions:
+
+1. retaining one observation per exact-predictor group;
+2. removing class weighting;
+3. including current diagnostic variables as an explicit leakage audit;
+4. removing missingness-indicator features.
+
+The duplicate-removal analysis produced similar conclusions. Class weighting
+substantially changed sensitivity and specificity. Missingness indicators had a
+modest influence overall, with clearer effects for logistic regression.
+
+The diagnostic-inclusive audit produced very large apparent performance gains.
+Those values are not valid pre-screening estimates; they demonstrate the
+inflation caused by diagnostic-variable leakage.
+
+![Modeling sensitivity comparisons](reports/figures/modeling_sensitivity_comparisons.png)
 
 ## Dataset
 
-The project uses the public **Cervical Cancer (Risk Factors)** dataset from the UCI Machine Learning Repository:
+The project uses the public
+[Cervical Cancer (Risk Factors)](https://doi.org/10.24432/C5Z310)
+dataset from the UCI Machine Learning Repository:
 
 - 858 observations;
-- 36 variables;
+- 36 original variables;
 - binary `Biopsy` outcome;
-- demographic, behavioral, reproductive, and medical-history information;
 - missing values;
 - CC BY 4.0 license.
 
-Dataset DOI: https://doi.org/10.24432/C5Z310
-
-Raw and processed datasets are not committed to this repository. They will be retrieved and generated through reproducible project code.
-
-## Methodological principles
-
-The primary analysis is designed around the following rules:
-
-- exclude current diagnostic results from pre-screening predictors;
-- fit imputation, scaling, and feature filtering inside training folds;
-- keep exact duplicate profiles in the same cross-validation fold;
-- use nested, stratified, group-aware cross-validation;
-- compare a dummy baseline, regularized logistic regression, and XGBoost;
-- prioritize average precision for the imbalanced outcome;
-- report uncertainty and clinically relevant error types;
-- separate the primary analysis from exploratory leakage audits.
-
-The full prespecified protocol is available in [`docs/modeling_protocol.md`](docs/modeling_protocol.md).
+Raw and processed datasets are not committed. Data provenance and retrieval
+details are documented in [`data/README.md`](data/README.md).
 
 ## Repository structure
 
 ```text
 .
-├── artifacts/                 # Generated model artifacts, not tracked
-├── data/
-│   ├── raw/                   # Official source data, not tracked
-│   ├── processed/             # Reproducible derived data, not tracked
-│   └── README.md              # Provenance and data-governance notes
+├── data/                         # Data provenance and local generated data
 ├── docs/
-│   └── modeling_protocol.md   # Prespecified modeling protocol
-├── notebooks/                 # Narrative analyses
+│   ├── modeling_protocol.md      # Prespecified analysis protocol
+│   └── results.md                # Results and scientific interpretation
 ├── reports/
-│   └── figures/               # Final reproducible figures
+│   ├── figures/                  # Reproducible result figures
+│   └── sensitivity_*/            # Sensitivity-analysis tables
 ├── src/
-│   └── cervical_biopsy_modeling/
-├── tests/                     # Automated tests
+│   └── cervical_biopsy_modeling/ # Reusable analysis package
+├── tests/                        # Automated tests
 ├── pyproject.toml
+├── uv.lock
 └── README.md
 ```
 
-## Reproducibility
+## Installation
 
-The project uses:
+The project requires Python 3.13 and uses
+[`uv`](https://docs.astral.sh/uv/) for dependency management.
 
-- Python 3.13;
-- `uv` for dependency management;
-- a `src/` package layout;
-- fixed and recorded random seeds;
+```bash
+uv sync --frozen
+```
+
+XGBoost requires the OpenMP runtime. On macOS with Homebrew:
+
+```bash
+brew install libomp
+```
+
+## Tests
+
+On macOS:
+
+```bash
+DYLD_LIBRARY_PATH="$(brew --prefix libomp)/lib" \
+  uv run pytest
+```
+
+The complete automated suite currently contains 120 passing tests.
+
+## Reproducing the figures
+
+The committed numerical result tables can be used to regenerate all final
+figures without refitting the models:
+
+```bash
+uv run python -m cervical_biopsy_modeling.reporting
+```
+
+This creates:
+
+- `reports/figures/primary_performance.png`;
+- `reports/figures/duplicate_sensitivity.png`;
+- `reports/figures/modeling_sensitivity_comparisons.png`;
+- `reports/figures/diagnostic_leakage_audit.png`.
+
+Full nested-validation reruns are deterministic but take several minutes.
+
+## Reproducibility safeguards
+
+The repository includes:
+
+- pinned dependencies in `uv.lock`;
+- fixed random seeds;
+- training-fold-only preprocessing;
+- group-aware nested validation;
 - automated tests;
-- documented data provenance.
-
-Installation and execution commands will be added as the workflow is implemented.
+- committed out-of-fold predictions and result tables;
+- deterministic figure generation;
+- documented data provenance and methodological limitations.
 
 ## Project origin
 
-The topic was initially explored through a Coursera Guided Project. This repository is a new implementation with an original scientific question, original code, leakage controls, nested validation, testing, and reproducibility safeguards.
+The topic was initially explored through a Coursera Guided Project. This
+repository is a new implementation with an original scientific question,
+original code, leakage controls, nested validation, uncertainty estimation,
+testing, and reproducibility safeguards.
 
 No Coursera source code or course notebook is included.
 
-## Intended use and limitations
-
-This repository is an educational and methodological portfolio project.
-
-The models are not intended for diagnosis, clinical decision-making, or patient care. Results will represent internal validation on one cross-sectional dataset and will not establish clinical utility, causality, or external validity.
-
 ## License
 
-Project code will be released under the MIT License.
+Project code is released under the MIT License.
 
-The UCI dataset remains governed by its CC BY 4.0 license and must be cited separately.
+The UCI dataset remains governed by its CC BY 4.0 license and must be cited
+separately.
