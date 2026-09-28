@@ -120,6 +120,8 @@ The project requires Python 3.13 and uses
 [`uv`](https://docs.astral.sh/uv/) for dependency management.
 
 ```bash
+git clone https://github.com/Gaith2000korchid/reproducible-cervical-biopsy-modeling.git
+cd reproducible-cervical-biopsy-modeling
 uv sync --frozen
 ```
 
