@@ -127,7 +127,7 @@ Because the dataset is small and contains few positive outcomes, no separate hol
 
 ## Evaluation metrics
 
-The primary metric is average precision, also called area under the precision-recall curve, because biopsy-positive observations are rare.
+The primary metric is scikit-learn average precision (AP), because biopsy-positive observations are rare. AP is the recall-weighted sum of precision increments; it is not the trapezoidal area under an interpolated precision-recall curve. The stored values use AP throughout.
 
 Secondary metrics are:
 

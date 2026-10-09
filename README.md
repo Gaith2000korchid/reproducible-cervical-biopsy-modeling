@@ -1,5 +1,9 @@
 # Reproducible Cervical Biopsy Modeling
 
+[![Tests and reproducible figures](https://github.com/Gaith2000korchid/reproducible-cervical-biopsy-modeling/actions/workflows/ci.yml/badge.svg)](https://github.com/Gaith2000korchid/reproducible-cervical-biopsy-modeling/actions/workflows/ci.yml)
+
+[Présentation française](docs/PRESENTATION_FR.md) · [Complete reproduction](docs/reproduction.md)
+
 Leakage-aware prediction of concurrent cervical biopsy positivity using
 reproducible preprocessing and nested, group-aware cross-validation.
 
@@ -140,7 +144,7 @@ DYLD_LIBRARY_PATH="$(brew --prefix libomp)/lib" \
   uv run pytest
 ```
 
-The complete automated suite currently contains 120 passing tests.
+The automated suite includes the original 120 tests plus a regression protecting published results from accidental overwrite. GitHub Actions installs the frozen environment, runs the suite with coverage, and regenerates figures from published tables in a separate directory. This does not refit the models or validate clinical utility.
 
 ## Reproducing the figures
 
@@ -158,7 +162,13 @@ This creates:
 - `reports/figures/modeling_sensitivity_comparisons.png`;
 - `reports/figures/diagnostic_leakage_audit.png`.
 
-Full nested-validation reruns are deterministic but take several minutes.
+To refit the primary models and all four sensitivity analyses without overwriting published evidence:
+
+```bash
+uv run --frozen python -m cervical_biopsy_modeling.reproduce --mode full --output-dir artifacts/full-rerun
+```
+
+The output directory must be empty. It receives result tables, figures, module logs and a run record with code, data and result fingerprints. `--mode primary` runs only the primary evaluation; `--mode figures` reuses the published tables. Full refits and bootstrap summaries can take substantial time; use the manual workflow option to run the full analysis in GitHub Actions. See [reproduction instructions](docs/reproduction.md).
 
 ## Reproducibility safeguards
 
