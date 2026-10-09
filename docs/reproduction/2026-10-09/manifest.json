@@ -1,0 +1,32 @@
+{
+  "workflow_run_id": 37951848145,
+  "analyzed_commit": "41266a77b6b78734f483641138f5d713c55c4f74",
+  "artifact_id": 11629788846,
+  "artifact_sha256": "968f937a7680c943cd7db499c5e0356f6c4a2ae163aabc0be33acea1bbd0f29c",
+  "verified_result_hashes": 39,
+  "verified_outer_partitions": 25,
+  "verified_aligned_prediction_rows": 12870,
+  "comparison": "Exact keyed alignment; no numerical tolerance used for reported differences. ROC AUC and all other summary metrics compared as stored; no models refitted in this verification.",
+  "source_host_limitation": "Original host not recorded; numerical cause remains unproven.",
+  "preserved_files": {
+    "run_record.json": "8e8e8c3e734ed24b83715f2f52e428d97b9cf5414b06e0773580e1438096159d",
+    "metric_comparison.csv": "3bd24b49e1e3e1118d36b2196333668b1850933881c583b85b0b0f937ed745c3"
+  },
+  "published_table_sha256": {
+    "reports/performance_summary.csv": "bc19b694336d199c9e7aa1ec1443aa192aff72717224485d67d810eea66f5536",
+    "reports/sensitivity_unweighted/performance_summary.csv": "9f02b2260d81e2a613dc6845b0a202f7e63a937c19e1232a9c1e9bd80e46da9c",
+    "reports/sensitivity_duplicates/performance_summary.csv": "300c42976a12db272cdf9ae11db092ee344f1a8725714b27b44f4996e780965e",
+    "reports/sensitivity_diagnostic_inclusive/performance_summary.csv": "0686dbf2d21e9f05036415ca35be312cd4437f529d2643b76e8468bd2fba26dd",
+    "reports/sensitivity_no_missing_indicators/performance_summary.csv": "53ffa17ed481176ee2f2cb122aa0dcb1475f5c08180b98c1f88c4dee0960b9b2"
+  },
+  "verified_xgboost_parameter_selections": {
+    "total": 25,
+    "different_parsed_objects": 12,
+    "different_raw_json_strings": 12
+  },
+  "verified_primary_class_differences": {
+    "dummy_prior": 0,
+    "logistic_regression": 0,
+    "xgboost": 264
+  }
+}

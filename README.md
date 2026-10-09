@@ -11,6 +11,22 @@ reproducible preprocessing and nested, group-aware cross-validation.
 > The models are not intended for diagnosis, clinical decision-making, or
 > patient care.
 
+## Start here
+
+**Contribution:** a reusable Python analysis with training-only preprocessing, nested group-aware validation, a dummy baseline and four sensitivity analyses.
+
+**Recorded result:** published primary ROC AUC is 0.6133 for logistic regression and 0.5932 for XGBoost. A complete Linux refit gives 0.6133 and 0.5875 respectively; numerical differences are documented, with their cause unresolved. Average precision remains the prespecified primary metric.
+
+![Published primary model performance](reports/figures/primary_performance.png)
+
+**Quick demonstration** (after [installation](#installation), from the repository root; reuses published tables):
+
+```bash
+uv run --frozen python -m cervical_biopsy_modeling.reproduce --mode figures --output-dir artifacts/figure-demo
+```
+
+[Results and interpretation](docs/results.md) · [Complete reproduction](docs/reproduction.md) · [Verified refit and durable evidence](docs/full_reproduction_validation.md)
+
 ## Overview
 
 This project evaluates whether demographic, behavioral, reproductive, and
@@ -40,8 +56,6 @@ logistic regression and XGBoost.
 At the fixed threshold of 0.5, logistic regression was more sensitive, whereas
 XGBoost was more specific. Performance remained modest, and the weighted-model
 probabilities should not be interpreted as calibrated clinical risks.
-
-![Primary model performance](reports/figures/primary_performance.png)
 
 Detailed numerical results, conditional uncertainty intervals, sensitivity
 analyses, and limitations are reported in

@@ -1,0 +1,143 @@
+{
+  "completed": true,
+  "dataset_sha256": "8df193ad5c9ff4288fb4c401eef70dcd2cbda404ce7f82ac74c68cfc960ab063",
+  "finished_utc": "2026-10-09T16:39:31.200240+00:00",
+  "interpretation": "figures reuses published tables; primary/full refit models. Neither mode provides external clinical validation.",
+  "mode": "full",
+  "packages": {
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1"
+  },
+  "python": "3.13.16",
+  "result_sha256": {
+    "reports/inner_cv_candidates.csv": "72df3aeaa80421233106d48a4b1b5084cb785f08145ba1a75ec856950ad8932c",
+    "reports/outer_cv_splits.csv": "16939d2489bc6c66ae15b7d210a78fabe53b94daf03667940ff7dd2671c61b54",
+    "reports/outer_fold_metrics.csv": "81c0e0d27df8cae35feedf357cf1dd47c508c27d732081b868bbccd1fae9ab45",
+    "reports/outer_predictions.csv": "3a6b261d169a2efd968b3345d0d3f82daa1f55613712deb17a76cc215f545295",
+    "reports/paired_model_comparisons.csv": "0cd7592137be255dba19edadacf9506c9deff8bc90926d49ed51be8b86527a3f",
+    "reports/performance_summary.csv": "791617bb2dc88b8ea913c2a8b66e17d495acfef8acc533d170ef94cc9150e9be",
+    "reports/repeat_metrics.csv": "61d194ba8a288583a1b585da1d17999c585286f1a0218e592fcd49ffc08f17ae",
+    "reports/selected_hyperparameters.csv": "ed4baee31670d03c2e913240ef1d199468e0fc5bf9275877a1aa624f1b5ef49c",
+    "reports/sensitivity_diagnostic_inclusive/inner_cv_candidates.csv": "864cdf1561bc1982aa1e99c6037d2173157175901a91ae0124855887cca2f5fb",
+    "reports/sensitivity_diagnostic_inclusive/outer_fold_metrics.csv": "5d0daef75304aabdb108ec561181e1f5717c0d0d50b22e4058340f7e3ee08538",
+    "reports/sensitivity_diagnostic_inclusive/outer_predictions.csv": "e9ddd92720a89e580e771b4388d00dd85a5cb547285fe70ac59273730f2d16e0",
+    "reports/sensitivity_diagnostic_inclusive/paired_diagnostic_comparisons.csv": "7a1b2989389612735613a8fdb89d158a0b794a9906d76f3c16bb317b36165b7b",
+    "reports/sensitivity_diagnostic_inclusive/paired_model_comparisons.csv": "9f3f53c0e5dc45b43a282c064ea2ed199c86ae824384235709d59c784f588813",
+    "reports/sensitivity_diagnostic_inclusive/performance_summary.csv": "ef48265c432e3cf671f683973e3827a1498a623fa6b297ae5cfff69752908129",
+    "reports/sensitivity_diagnostic_inclusive/repeat_metrics.csv": "f1ab5dbd259aa5319dad1b1560fbb3563a380ebf3b9660bc8477e9f58230a362",
+    "reports/sensitivity_diagnostic_inclusive/selected_hyperparameters.csv": "b679c177d90e7f676827b944d280256245ff4d337ed64464eb2f63e2ae1f7f02",
+    "reports/sensitivity_duplicates/inner_cv_candidates.csv": "db4d212c092abb443f5c880a0d11eeba951522687a1f1d281703f2fbf364d9e1",
+    "reports/sensitivity_duplicates/outer_fold_metrics.csv": "24406d66c75c02a264df68cb0adcaaa3bac64a29c8a5997fd25d77a17e9f2862",
+    "reports/sensitivity_duplicates/outer_predictions.csv": "2d5bcdc23bfe3b3e97bbddbd2833fe6322b348ea3b8cc05cbdbe24174d080336",
+    "reports/sensitivity_duplicates/paired_model_comparisons.csv": "3c33304d23e149b719eb18f54f4d3b8756a246579f081429da59686dba8af1b6",
+    "reports/sensitivity_duplicates/performance_summary.csv": "67336c86536d7c0ca11c1721b2ec1563b3e47553701982620b82a54813112f32",
+    "reports/sensitivity_duplicates/repeat_metrics.csv": "b984bfec4872f87daceaecf621b3ea22f4f6e52d3dec429c09d1dd05614f1390",
+    "reports/sensitivity_duplicates/selected_hyperparameters.csv": "0dbf349560aa3b55a598bf29fabe9684d825fe4b7cfc4b812a07397a779c0b88",
+    "reports/sensitivity_no_missing_indicators/inner_cv_candidates.csv": "0762b7da37da7ffb3e14dc48193f48fe71d9153f339a2ff01e8dcfd3e492d7e6",
+    "reports/sensitivity_no_missing_indicators/outer_fold_metrics.csv": "cafc2a73e9b0d553dcb6ae38a024c8931ff2e096d49946c1a186abe5e56b291e",
+    "reports/sensitivity_no_missing_indicators/outer_predictions.csv": "e069faa16bb65bf763391282824e0fe51d64e450ec7cb22933d740f19041ee79",
+    "reports/sensitivity_no_missing_indicators/paired_missing_indicator_comparisons.csv": "b0d1cf014aa56d45c0abe2e5ca1f6467a6974af2ae21454225daa2e0f6896c83",
+    "reports/sensitivity_no_missing_indicators/paired_model_comparisons.csv": "d87da00640d3636843c04526bc25a11898b838c94288b2f653cd11c23b3e5206",
+    "reports/sensitivity_no_missing_indicators/performance_summary.csv": "c33baa2a173b86383ed46b77d3121019f4bb22fd01f0ea6d5926b16e8d8bbece",
+    "reports/sensitivity_no_missing_indicators/repeat_metrics.csv": "7f40607e91d577aceb2d2957a4630bd6edb7d3b51e336fa1d984bcf1b40bff9c",
+    "reports/sensitivity_no_missing_indicators/selected_hyperparameters.csv": "7299ca3b0b4bad0eab1a97831b29ca725f8abab1cf8a0003a69562062c1f1cb3",
+    "reports/sensitivity_unweighted/inner_cv_candidates.csv": "b8441ce8c9fac3f31fef01b244c7e4e46e878f9df67a520fa212c5f126df90d7",
+    "reports/sensitivity_unweighted/outer_fold_metrics.csv": "bee235aafe02751999ade5e3a5b038ceea05750a10b4e26edfc8b87bef1727ba",
+    "reports/sensitivity_unweighted/outer_predictions.csv": "1a96b1543b5696e11c4b42ff9607a0766a2e270f47a3d9dd35e40eb8afa6567c",
+    "reports/sensitivity_unweighted/paired_model_comparisons.csv": "0f8fabf489f7bf9bb784251b9510592e205017a1e9561b73cc9c41264f3828af",
+    "reports/sensitivity_unweighted/paired_weighting_comparisons.csv": "c3c155d41f99d1d5c763c4e18673427e1ed4ae274dbbb8e4cb78682029307d97",
+    "reports/sensitivity_unweighted/performance_summary.csv": "4b8d0b66c73bc480dd8fbef55f841b50b7db6fda4eb02b05bb990f20ab74c957",
+    "reports/sensitivity_unweighted/repeat_metrics.csv": "6a6bddb5145c3ec08224fda3db94e5d68efec45efd834d97e56f315794b33e3e",
+    "reports/sensitivity_unweighted/selected_hyperparameters.csv": "fd7d90059fafa822458a4e3d62a47bc368690d4ccbea6d97e335bf551400f0d0"
+  },
+  "source_commit": "41266a77b6b78734f483641138f5d713c55c4f74",
+  "source_dirty": false,
+  "source_sha256": {
+    "pyproject.toml": "84a0a7081bbc1f9b35f74ed2aeeb751ebd8f3b1548e193e90d6e35241b2427c6",
+    "src/cervical_biopsy_modeling/__init__.py": "69ef1775e8799ae258df8381b196f5f593b210d109ea351409069900aeb98740",
+    "src/cervical_biopsy_modeling/audit.py": "37c735e491a65e8f5ef9741d140ea1dbd90a83b7810b2498014192f8450f7029",
+    "src/cervical_biopsy_modeling/comparisons.py": "c44d5f98737d1a38de4097d7789703272b32d85a7e291f027ed04c8ec293d36c",
+    "src/cervical_biopsy_modeling/data.py": "913489f3ad4e6d849fcee9ab387eab26eb252ddefa72f316009a1701d812cda9",
+    "src/cervical_biopsy_modeling/diagnostic_comparisons.py": "8749620232e33f028bbaf45eea9d95c7d358df20a810d792099f10b6783b66ad",
+    "src/cervical_biopsy_modeling/evaluation.py": "f03082a3a08566534d1aa45903e64cd98975c6d228cfc7c3ee35d4533642b33d",
+    "src/cervical_biopsy_modeling/metrics.py": "afc5cc290e16276687e20ce8d3b21accabc5e32bfe45774c562190083e151dea",
+    "src/cervical_biopsy_modeling/missing_indicator_comparisons.py": "c633842353e71838bee8c4ce4848317d69e259690a548a3dc86fbcf16aac3a20",
+    "src/cervical_biopsy_modeling/modeling_data.py": "037293b364fe7eff2dacbee28b7069b098c09dfba72387eada27e43e2b8f2b9e",
+    "src/cervical_biopsy_modeling/models.py": "6738ee01d601c334cd7c8e1ea5f338c8263ddac4bae034cc5eb4fc8d541cb6cf",
+    "src/cervical_biopsy_modeling/preprocessing.py": "044341f3471ee246384712da7a6bc0e73eed9a74f69a6d29ce2f02c678e98ab0",
+    "src/cervical_biopsy_modeling/reporting.py": "f929fd5107b14bf7abc2f6181582d1e090710934108b48cefce4ccf5505286e9",
+    "src/cervical_biopsy_modeling/reproduce.py": "1875dd1a08391948c9fce2336f94541d4fc371d1e9467334e95000e2f61e683e",
+    "src/cervical_biopsy_modeling/sensitivity_diagnostic_inclusive.py": "bb084fc25d8a5e1fcca275620dac85b48599ceecc708ddf784b7c1bdfe930461",
+    "src/cervical_biopsy_modeling/sensitivity_duplicates.py": "0899ca4fcba1a989434dd0314cbe6134b91fb084764b49c3d3bfb2b8c6613f03",
+    "src/cervical_biopsy_modeling/sensitivity_no_missing_indicators.py": "c7d63aac9b96d29502e78bd2cd478dcceff782533385fb8a1d593bb4cecdfbbf",
+    "src/cervical_biopsy_modeling/sensitivity_unweighted.py": "bd8b30fdaa9a90fee6b59be4c2ad16727feb56dac5fe82cd46d50d6d27064ea3",
+    "src/cervical_biopsy_modeling/summary.py": "509f46db677f248c3756080e665d12568d10d238ca5d6198562eaf3eb1035337",
+    "src/cervical_biopsy_modeling/tuning.py": "b323269bbfd56824adb108dd616035c653a16a2d96bea3b390e6a0c42f415564",
+    "src/cervical_biopsy_modeling/validation.py": "d48b3fec6ba1b33885bacbcea1ec1ca94b05b110cfb2bbfba8012d7422f6ddc1",
+    "src/cervical_biopsy_modeling/weighting_comparisons.py": "48cf082efe48d6581c621e78b2218fadcf6fd28b722f8385ef40f09ede6cc430",
+    "src/cervical_biopsy_modeling/xgboost_model.py": "d91016e5c79c831bd3802ab4f226d41abbb5fb0c511f741078c284981a7e4b57",
+    "uv.lock": "9d71411414fdecf26780a525519f8c680e4c73cfb785c1075042746e35e4e96e"
+  },
+  "started_utc": "2026-10-09T15:28:14.094635+00:00",
+  "steps": [
+    {
+      "exit_code": 0,
+      "module": "data"
+    },
+    {
+      "exit_code": 0,
+      "module": "audit"
+    },
+    {
+      "exit_code": 0,
+      "module": "validation"
+    },
+    {
+      "exit_code": 0,
+      "module": "evaluation"
+    },
+    {
+      "exit_code": 0,
+      "module": "summary"
+    },
+    {
+      "exit_code": 0,
+      "module": "comparisons"
+    },
+    {
+      "exit_code": 0,
+      "module": "sensitivity_duplicates"
+    },
+    {
+      "exit_code": 0,
+      "module": "sensitivity_unweighted"
+    },
+    {
+      "exit_code": 0,
+      "module": "weighting_comparisons"
+    },
+    {
+      "exit_code": 0,
+      "module": "sensitivity_diagnostic_inclusive"
+    },
+    {
+      "exit_code": 0,
+      "module": "diagnostic_comparisons"
+    },
+    {
+      "exit_code": 0,
+      "module": "sensitivity_no_missing_indicators"
+    },
+    {
+      "exit_code": 0,
+      "module": "missing_indicator_comparisons"
+    },
+    {
+      "exit_code": 0,
+      "module": "reporting"
+    }
+  ]
+}
