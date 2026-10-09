@@ -27,6 +27,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: verified-figures-and-coverage
+          retention-days: 90
           path: |
             ${{ runner.temp }}/figures/reports/figures/
             ${{ runner.temp }}/figures/run_record.json
@@ -49,6 +50,7 @@ jobs:
         if: always()
         with:
           name: full-nested-validation
+          retention-days: 90
           path: |
             ${{ runner.temp }}/full-analysis/reports/
             ${{ runner.temp }}/full-analysis/logs/

@@ -28,3 +28,5 @@ The settings remain the documented five repeated outer folds, four inner folds, 
 ## GitHub Actions
 
 Automatic CI checks tests, coverage and figure generation. In the Actions tab, choose **Tests and reproducible figures**, **Run workflow**, and enable **full_analysis** to execute the entire analysis. Full execution is optional because it refits models and performs repeated bootstrap calculations; it is not silently performed by the quick figure check. Artifacts include result tables and run records; the downloaded raw CSV is omitted from the upload.
+
+A completed full refit is recorded in [full reproduction validation](full_reproduction_validation.md). That run does not replace the published tables.

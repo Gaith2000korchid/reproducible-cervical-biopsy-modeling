@@ -168,7 +168,7 @@ To refit the primary models and all four sensitivity analyses without overwritin
 uv run --frozen python -m cervical_biopsy_modeling.reproduce --mode full --output-dir artifacts/full-rerun
 ```
 
-The output directory must be empty. It receives result tables, figures, module logs and a run record with code, data and result fingerprints. `--mode primary` runs only the primary evaluation; `--mode figures` reuses the published tables. Full refits and bootstrap summaries can take substantial time; use the manual workflow option to run the full analysis in GitHub Actions. See [reproduction instructions](docs/reproduction.md).
+The output directory must be empty. It receives result tables, figures, module logs and a run record with code, data and result fingerprints. `--mode primary` runs only the primary evaluation; `--mode figures` reuses the published tables. Full refits and bootstrap summaries can take substantial time; use the manual workflow option to run the full analysis in GitHub Actions. See [reproduction instructions](docs/reproduction.md). A full Linux refit of commit `41266a77` is summarized in [the validation note](docs/full_reproduction_validation.md); published tables were kept.
 
 ## Reproducibility safeguards
 
